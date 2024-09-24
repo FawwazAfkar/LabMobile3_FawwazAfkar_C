@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loginapp101/ui/homepage.dart';
+import 'package:loginapp101/ui/landingpage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,7 +12,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  var namauser;
 
   void _saveUsername() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -19,28 +19,28 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _showInput(namaController, placeholder, isPassword) {
-  return TextField(
-    controller: namaController,
-    obscureText: isPassword,
-    style: const TextStyle(color: Colors.white), // Set text color to white
-    decoration: InputDecoration(
-      labelText: placeholder,
-      labelStyle: const TextStyle(color: Colors.white), // Set label text color to white
-      hintStyle: const TextStyle(color: Colors.white), // Set hint text color to white
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+    return TextField(
+      controller: namaController,
+      obscureText: isPassword,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        labelText: placeholder,
+        labelStyle: const TextStyle(color: Colors.white),
+        hintStyle: const TextStyle(color: Colors.white),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.white), // Set border color to white
-        borderRadius: BorderRadius.circular(10),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.white), // Set border color to white
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
-  );
-}
+    );
+  }
 
   _showDialog(pesan, alamat) {
     return showDialog(
@@ -48,6 +48,11 @@ class _LoginPageState extends State<LoginPage> {
       builder: (context) {
         return AlertDialog(
           title: Text(pesan),
+          titleTextStyle: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
           actions: [
             TextButton(
               child: const Text('OK'),
@@ -76,44 +81,60 @@ class _LoginPageState extends State<LoginPage> {
             end: Alignment.bottomCenter,
           ),
         ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Selamat Datang',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Login dengan akun Para Sigma',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
-              const SizedBox(height: 20),
-              _showInput(_usernameController, 'Username', false),
-              const SizedBox(height: 20),
-              _showInput(_passwordController, 'Password', true),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                child: const Text('Login'),
-                onPressed: () {
-                  if (_usernameController.text == 'waz' &&
-                      _passwordController.text == 'example123') {
-                    _saveUsername();
-                    _showDialog('Login Berhasil', const HomePage());
-                  } else {
-                    _showDialog('Username dan Password Salah', const LoginPage());
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  shape: RoundedRectangleBorder(
+            ),
+            const SizedBox(height: 20),
+            _showInput(_usernameController, 'Username', false),
+            const SizedBox(height: 20),
+            _showInput(_passwordController, 'Password', true),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              child: const Text('Login'),
+              onPressed: () {
+                if (_usernameController.text == 'waz' &&
+                    _passwordController.text == 'password') {
+                  _saveUsername();
+                  _showDialog('Login Berhasil', const HomePage());
+                } else if (_usernameController.text == '' ||
+                    _passwordController.text == '') {
+                  _showDialog('Masukkan data dengan benar', const LoginPage());
+                }else{
+                  _showDialog('Login Gagal', const LoginPage());
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white, backgroundColor: Colors.green,
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
-                  ),
+
                 ),
               ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 20),
+            TextButton(onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LandingPage()),
+              );}, 
+              child: const Text(
+              'Kembali', 
+              style: TextStyle(color: Colors.white),
+              )
+            ),
+          ],
         ),
+      ),
     );
   }
 }

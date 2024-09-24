@@ -1,21 +1,19 @@
 # loginapp101
 
-A new Flutter project.
+Project App SigmaFeeds
 
 ## Getting Started
 
-<<penjelasan sementara>>
-- Terdapat Halaman Landing yang mengarah ke login
-- Login page mengarah ke home page
-- terdapat sidebar di homepage yang memiliki opsi untuk home dan logout
+## Penjelasan Aplikasi
+- Landing Page yang terdapat button dengan route ke Login
+- Login dengan menggunakan username dan password. Terdapat 2 tombol untuk route Login dan yang satu untuk kembali ke Home
+- Halaman homepage yang berisi profil user dengan pp dari local storage, dengan sidebar yang berisi menu untuk melihat feeds, serta logout
+- Halaman Feeds yang menampilkan "berita" atau feeds dengan susunan card
 
-This project is a starting point for a Flutter application.
+## Screenshot tampilan form dan hasil
+![](img/landing.png)
+![](img/login.png)
+![](img/homeprofiles.png)
+![](img/sidebar.png)
+![](img/feeds.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

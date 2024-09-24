@@ -21,8 +21,13 @@ class LandingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/sigma.png',
+              width: 100,
+              height: 100,
+            ),
             const Text(
-              'Selamat datang, Klik tombol dibawah untuk login',
+              'Selamat datang di Aplikasi SigmaFeeds, Klik tombol dibawah untuk login',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
@@ -41,6 +46,9 @@ class LandingPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 textStyle: const TextStyle(fontSize: 18),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
               child: const Text('Login'),
             ),
