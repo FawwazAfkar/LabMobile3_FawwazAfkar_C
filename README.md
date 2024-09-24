@@ -2,8 +2,6 @@
 
 Project App SigmaFeeds
 
-## Getting Started
-
 ## Penjelasan Aplikasi
 - Landing Page yang terdapat button dengan route ke Login
 - Login dengan menggunakan username dan password. Terdapat 2 tombol untuk route Login dan yang satu untuk kembali ke Home
