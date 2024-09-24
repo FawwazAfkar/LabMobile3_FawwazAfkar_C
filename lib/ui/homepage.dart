@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             const CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/profile_picture.jpg'), // Replace with your asset path
+              backgroundImage: AssetImage('assets/profile.jpg'), // Replace with your asset path
             ),
             const SizedBox(height: 20),
             Text(

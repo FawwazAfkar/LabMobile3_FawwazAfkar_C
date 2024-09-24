@@ -4,6 +4,11 @@ A new Flutter project.
 
 ## Getting Started
 
+<<penjelasan sementara>>
+- Terdapat Halaman Landing yang mengarah ke login
+- Login page mengarah ke home page
+- terdapat sidebar di homepage yang memiliki opsi untuk home dan logout
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
