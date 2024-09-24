@@ -8,10 +8,11 @@ Project App SigmaFeeds
 - Halaman homepage yang berisi profil user dengan pp dari local storage, dengan sidebar yang berisi menu untuk melihat feeds, serta logout
 - Halaman Feeds yang menampilkan "berita" atau feeds dengan susunan card
 
+
 ## Screenshot tampilan form dan hasil
-![](img/landing.png)
-![](img/login.png)
-![](img/homeprofiles.png)
-![](img/sidebar.png)
-![](img/feeds.png)
+![landingpage.dart](img/landing.png)
+![loginpage.dart](img/login.png)
+![homepage.dart](img/homeprofiles.png)
+![sidebar.dart](img/sidebar.png)
+![feeds.dart](img/feeds.png)
 
